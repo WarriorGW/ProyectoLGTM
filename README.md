@@ -1,17 +1,16 @@
-# PayFlow MX - Transaction Validator
+# PayFlow MX
 
-Microservicio crítico de validación de transacciones para PayFlow MX con observabilidad completa.
-
-##Arquitectura
+## Arquitectura
 
 - **Microservicio**: Node.js + Express
-- **Métricas**: Prometheus
-- **Logs**: Winston (JSON estructurado)
-- **Trazas**: OpenTelemetry + Jaeger
+- **Métricas**: LGTM
+- **Logs**: Loki
+- **Trazas**: OpenTelemetry
 - **CI/CD**: GitHub Actions
 - **Despliegue**: Blue/Green en Kubernetes
 
 ## Estructura del Proyecto
+
 ```
 payflow-project/
 ├── microservice/       # Código del microservicio
@@ -19,21 +18,6 @@ payflow-project/
 ├── monitoring/        # Stack de observabilidad
 ├── docs/             # Documentación técnica
 └── tests/            # Pruebas de carga (k6)
-```
-
-## Quick Start
-
-### Ejecutar localmente
-```bash
-cd microservice
-npm install
-npm start
-```
-
-### Ejecutar con Docker
-```bash
-docker build -t transaction-validator:v1.0.0 ./microservice
-docker run -p 3000:3000 transaction-validator:v1.0.0
 ```
 
 ## Endpoints
@@ -46,13 +30,5 @@ docker run -p 3000:3000 transaction-validator:v1.0.0
 ## SLO/SLA
 
 - **Disponibilidad**: 99.5% mensual
-- **Latencia p95**: < 250ms
+- **Latencia p95**: < 300ms
 - **Tasa de error**: < 1%
-
-## Autores
-
-- Johany Carrillo Martinez
-
-## Licencia
-
-MIT
